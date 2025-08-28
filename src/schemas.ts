@@ -3,8 +3,8 @@ import z from 'zod';
 export const ProductSchema = z.object({
     id: z.number(),
     name: z.string(),
-    image: z.string(),
     price: z.coerce.number(),
+    image: z.string(),
     inventory: z.number(),
     categoryId: z.number()
 });
@@ -85,6 +85,7 @@ export const ProductFormSchema = z.object({
         .min(1, { message: 'El Nombre del Producto no puede ir vacio' }),
     price: z.coerce.number({ message: 'Precio no válido' })
         .min(1, { message: 'El Precio debe ser mayor a 0' }),
+    image: z.string({ message: 'La imágen es obligatoria '}),
     inventory: z.coerce.number({ message: 'Inventario no válido' })
         .min(1, { message: 'El inventario debe ser mayor a 0' }),
     categoryId: z.coerce.number({ message: 'La Categoria no es válida' })

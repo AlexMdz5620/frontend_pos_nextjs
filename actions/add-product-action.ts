@@ -11,9 +11,12 @@ export async function addProduct(prevState: ActionStateType, formData: FormData)
     const products = ProductFormSchema.safeParse({
         name: formData.get('name'),
         price: formData.get('price'),
+        image: formData.get('image'),
         inventory: formData.get('inventory'),
         categoryId: formData.get('categoryId'),
     });
+
+    console.log(products.data?.image);
 
     if (!products.success) {
         return {
@@ -35,7 +38,7 @@ export async function addProduct(prevState: ActionStateType, formData: FormData)
     if (!req.ok) {
         const errors = ErrorResponseSchema.parse(json);
         return {
-            errors: errors.message.map(issue => issue),
+            errors: errors.message.map(error => error),
             success: '',
         }
     }

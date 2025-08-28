@@ -27,8 +27,6 @@ export default async function ProductPage({ searchParams }: { searchParams: Sear
   const productsPerPage = 10;
   const skip = (+page - 1) * productsPerPage;
 
-  console.log(skip);
-
   const { products, total } = await getProducts(productsPerPage, skip);
   const totalPages = Math.ceil(total / productsPerPage);
 

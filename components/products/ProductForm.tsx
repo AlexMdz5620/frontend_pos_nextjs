@@ -1,4 +1,5 @@
 import { CategoriesResponseSchema, Product } from '@/src/schemas';
+import UploadProductImage from './UploadProductImage';
 
 async function getCategories() {
     const url = `${process.env.API_URL}/categories`;
@@ -10,7 +11,8 @@ async function getCategories() {
 
 export default async function ProductForm({ product }: { product?: Product }) {
     const categories = await getCategories();
-    if (product) return (
+    console.log(product?.image);
+    return (
         <>
             <div className="space-y-2 ">
                 <label
@@ -23,7 +25,7 @@ export default async function ProductForm({ product }: { product?: Product }) {
                     placeholder="Nombre Producto"
                     className="border border-gray-300 w-full p-2"
                     name="name"
-                    defaultValue={product.name}
+                    defaultValue={product?.name}
                 />
             </div>
 
@@ -39,7 +41,7 @@ export default async function ProductForm({ product }: { product?: Product }) {
                     className="border border-gray-300 w-full p-2"
                     name="price"
                     min={0}
-                    defaultValue={product.price}
+                    defaultValue={product?.price}
                 />
             </div>
 
@@ -55,7 +57,7 @@ export default async function ProductForm({ product }: { product?: Product }) {
                     className="border border-gray-300 w-full p-2"
                     name="inventory"
                     min={0}
-                    defaultValue={product.inventory}
+                    defaultValue={product?.inventory}
                 />
             </div>
 
@@ -68,7 +70,7 @@ export default async function ProductForm({ product }: { product?: Product }) {
                     id="categoryId"
                     className="border border-gray-300 w-full p-2 bg-white"
                     name="categoryId"
-                    defaultValue={product.categoryId}
+                    defaultValue={product?.categoryId}
                 >
                     <option value="">Seleccionar Categoría</option>
                     {categories.map(category => (
@@ -77,6 +79,9 @@ export default async function ProductForm({ product }: { product?: Product }) {
                 </select>
             </div>
 
+            <UploadProductImage
+                currentImage={product?.image}
+            />
         </>
     )
 }
