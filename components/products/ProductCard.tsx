@@ -9,7 +9,7 @@ export default function ProductCard({ product }: {product: Product}) {
             className='rounded bg-white shadow relative p-5'
         >
             <div
-                className={`${!isAvailable(product.inventory)} && opacity-40`}
+                className={`${!isAvailable(product.inventory)  && 'opacity-40'}`}
             >
                 <Image
                     src={getImagePath(product.image)}
