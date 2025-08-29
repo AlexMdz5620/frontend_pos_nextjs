@@ -34,7 +34,7 @@ export default function TransactionFilter() {
                 <Calendar
                     value={date}
                     onChange={setDate}
-                // locale='es'
+                    locale='es'
                 />
             </div>
             <div>

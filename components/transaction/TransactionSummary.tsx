@@ -3,8 +3,6 @@ import Image from 'next/image'
 import { formatCurrency, getImagePath } from '../../src/utils';
 
 export default function TransactionSummary({ transaction }: { transaction: Transaction }) {
-
-    console.log(transaction);
     return (
         <>
             <div className='mb-6 text-sm font-medium text-gray-500 border border-gray-200'>

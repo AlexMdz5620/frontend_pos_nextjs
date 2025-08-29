@@ -31,7 +31,7 @@ export default function ProductCard({ product }: {product: Product}) {
                     />
                 )
                 : (
-                    <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white opacity-60 w-full text-centerpy5
+                    <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white opacity-60 w-full text-center p-y5
                      text-2xl uppercase font-black'>Agotado</p>
                 )
             }
